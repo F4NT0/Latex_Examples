@@ -1,0 +1,287 @@
+% -------------------------------------------------------------------
+% TCC: Modelo de Trabalho Monográfico Acadêmico PUCRS 
+%       para o curso de graduação em bacharelado em Engenharia de Software
+% http://www.sascha-frank.com/latex-font-size.html
+% Template rebuild por Leonardo Vizzotto
+%
+% baseado no template rebuild de Francisco Reinaldo 
+%		(https://orcid.org/0000-0001-6161-6755)
+%		(http://lattes.cnpq.br/7401534350061823)
+%
+% Versao de Controle: v0
+% 
+% -------------------------------------------------------------------
+
+% --- LianTze / Reinaldo´s Fine Tuning
+\RequirePackage{scrlfile}
+\AfterClass{memoir}{\usepackage[a-3b]{pdfx}} %v.3
+%Para funcionar, deixe na raiz: sRGB_IEC61966-2-1_black_scaled
+%\BeforePackage{hyperref}{\usepackage[a-3b]{pdfx}} %v.3.2
+% ---
+
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	oneside,			% para impressão em frente. Oposto a twoside (frente,costas)
+	a4paper,			% tamanho do papel. 
+	% % -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+]{abntex2}
+
+
+% \titlespacing*{hcommd}{hlefti}{hbefore-sepi}{hafter-sepi}[hright-sepi]
+% \usepackage{titlesec}
+% \titlespacing*{\chapter}{0pt}{-2\baselineskip}{-0.5}[-10pt]
+% \titlespacing*{\section}{0pt}{1.1\baselineskip}{0.5\baselineskip}[-10pt]
+
+    
+% --- 
+% PACOTES PARA AJUSTE e CORREÇÕES EM ABNTEX2
+% --- 
+\input{pacotes}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{rotating}
+% \usepackage{geometry}
+\setlength{\marginparwidth}{2cm}
+
+
+% \date{\today}
+% --- 
+% DADOS BASICOS DE AUTORIA
+% --- 
+\input{dados-gerais}
+ 
+% --- 
+% CAPA
+% --- 
+\input{0-capa-e-rosto/capa}
+ 
+% --- 
+% FOLHA DE ROSTO
+% --- 
+\input{0-capa-e-rosto/folha-de-rosto}
+
+% --- 
+% DADOS BASICOS DE AUTORIA EM ABNTEX, LOAD DE dados-gerais.tex
+% --- 
+% \tipotrabalho{\tipotrabalhoescrito}
+\instituicao{\instituicaotrabalho}
+
+\autor{\discente}
+\titulo{\titulotrabalho}
+\data{\the\year}
+\local{\cidadededefesa}
+
+\orientador{\proforientador}
+%\coorientador{\profcoorientador}
+
+% ---
+% COMPILA O INDICE
+% ---
+\makeindex
+
+% \documentclass[12pt,twoside]{report}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+% Format Chapter size and spaces
+\titleformat{\chapter}[display]
+{\normalfont\bfseries}{}{0pt}{\normalsize\thechapter.\ }
+\titlespacing*{\chapter}{5pt}{-50pt}{20pt}
+
+% Number on the section
+\titleformat{\section}[hang]{\bfseries}{\thesection.\ }{0pt}{}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+\selectlanguage{brazil}
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+
+% ---
+% Folha de rosto
+% ---
+% \imprimirfolhaderosto
+
+% ---
+% Inserir folha de aprovação
+% ---
+% \input{1-pre-textuais/folha-de-aprovacao}
+
+% ---
+% Dedicatória
+% ---
+% \input{1-pre-textuais/dedicatoria}
+
+% ---
+% Agradecimentos
+% ---
+% \input{1-pre-textuais/agradecimentos}
+
+% ---
+% Epígrafe
+% ---
+\input{1-pre-textuais/epigrafe}
+
+
+% ---
+% RESUMOS
+% ---
+
+% Resumo em português
+\input{1-pre-textuais/resumo}
+
+% Resumo em inglês
+%\input{1-pre-textuais/abstract}
+
+% ---
+% Lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% Lista de tabelas
+% ---
+% \pdfbookmark[0]{\listtablename}{lot}
+% \listoftables*
+% \cleardoublepage
+% ---
+
+% ---
+% inserir lista de quadros
+% ---
+%\pdfbookmark[0]{\listofquadrosname}{loq}
+%\listofquadros*
+%\cleardoublepage
+% ---
+
+% ---
+% Lista de Abreviaturas e Siglas
+% ---
+\input{1-pre-textuais/lista-de-abreviaturas} 
+\cleardoublepage
+% ---
+% Lista de Símbolos
+% ---
+%\input{1-pre-textuais/lista-de-simbolos}
+
+% ---
+% Lista de Codigo-Fonte
+% ---
+%\pdfbookmark[0]{\listofcodigosname}{loc}
+%\listofcodigos*
+%\cleardoublepage
+% ---
+
+% ---
+% Sumario
+% ---
+\input{1-pre-textuais/sumario.tex}
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+% ------------
+%  INTRODUÇÃO
+% ------------
+\input{2-textuais/1-introducao}
+
+%AGES 1
+\input{2-textuais/AGES-1/1-introducao}
+\input{2-textuais/AGES-1/2-desenvolvimento-projeto}
+\input{2-textuais/AGES-1/3-atividades-desempenhadas}
+\input{2-textuais/AGES-1/4-conclusao}
+
+%AGES 2
+\input{2-textuais/AGES-2/1-introducao}
+\input{2-textuais/AGES-2/2-desenvolvimento-projeto}
+\input{2-textuais/AGES-2/3-atividades-desempenhadas}
+\input{2-textuais/AGES-2/4-conclusao}
+
+%AGES 3
+\input{2-textuais/AGES-3/1-introducao}
+\input{2-textuais/AGES-3/2-desenvolvimento-projeto}
+\input{2-textuais/AGES-3/3-atividades-desempenhadas}
+\input{2-textuais/AGES-3/4-conclusao}
+
+%AGES 4
+\input{2-textuais/AGES-4/1-introducao}
+\input{2-textuais/AGES-4/2-desenvolvimento-projeto}
+\input{2-textuais/AGES-4/3-atividades-desempenhadas}
+\input{2-textuais/AGES-4/4-conclusao}
+
+
+%Conclusão geral
+\input{2-textuais/2-conclusao}
+
+
+% ----------------------------------------------------------
+% Finaliza a parte no bookmark do PDF
+% para que se inicie o bookmark na raiz
+% e adiciona espaço de parte no Sumário
+% ----------------------------------------------------------
+\phantompart
+
+% ---
+% Conclusão
+% ---
+
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+
+% ---
+% Referências
+% ---
+\bibliography{referencias-acervo}
+
+% ---
+% Glossário
+% ---
+% \input{3-pos-textuais/glossario}
+
+% ---
+% Apêndices
+% ---
+\begin{apendicesenv}
+% Imprime uma página indicando o início dos apêndices
+% \partapendices
+\input{3-pos-textuais/apendices}
+\end{apendicesenv}
+
+% ---
+% INDICE REMISSIVO
+% ---
+\phantompart
+\printindex
+
+
+%---------------------------------------------------------------------
+\end{document}
